@@ -1,0 +1,78 @@
+<html>
+<style>
+    body {
+        margin: 0;
+    }
+    .center {
+  display: block;
+  padding-top: 150;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+
+
+<body>
+  
+  <!-- <style>
+    body {
+      background-image: url('comex2.svg');
+      background-repeat: no-repeat;
+
+    }
+    </style> -->
+    <img src="comex2.svg" alt="Comex" class="center">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>    <script>
+        window.addEventListener("load", () => {
+            var defaults = {
+  scalar: 2,
+  spread: 270,
+  particleCount: 25,
+  origin: { y: 0.4 },
+  startVelocity: 35,
+};
+
+confetti({
+  ...defaults,
+  shapes: ["image"],
+  shapeOptions: {
+    image: {
+      src: "https://particles.js.org/images/pumpkin.svg",
+      replaceColor: true,
+      width: 32,
+      height: 40,
+    },
+  },
+  colors: ["#ff9a00", "#ff7400", "#ff4d00"],
+});
+confetti({
+  ...defaults,
+  shapes: ["image"],
+  shapeOptions: {
+    image: {
+      src: "https://particles.js.org/images/pine-tree.svg",
+      replaceColor: true,
+      width: 271,
+      height: 351.5,
+    },
+  },
+  colors: ["#8d960f", "#be0f10", "#445404"],
+});
+confetti({
+  ...defaults,
+  shapes: ["heart"],
+  colors: ["#f93963", "#a10864", "#ee0b93"],
+});
+
+
+        });
+
+
+    </script>
+
+</body>
+
+
+</html>
