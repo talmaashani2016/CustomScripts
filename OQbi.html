@@ -1,20 +1,21 @@
 <html>
 <style>
-    body {
-        margin: 0;
-    }
-    .center {
-  display: block;
-  padding-top: 150;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
+  body {
+    margin: 0;
+  }
+
+  .center {
+    display: block;
+    padding-top: 150;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
 </style>
 
 
 <body>
-  
+
   <!-- <style>
     body {
       background-image: url('comex.png');
@@ -22,51 +23,66 @@
 
     }
     </style> -->
-    <img src="OQBi_Logo.png" alt="Comex" class="center">
+  <img src="OQBi_Logo.png" alt="Comex" class="center">
 
-  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>    <script>
-        window.addEventListener("load", () => {
-            var defaults = {
-  scalar: 2,
-  spread: 270,
-  particleCount: 50,
-  origin: { y: 0.4 },
-  startVelocity: 35,
-};
-
-confetti({
-  ...defaults,
-  shapes: ["image"],
-  shapeOptions: {
-    image: {
-      src: "shape2.png",
-      replaceColor: true,
-      width: 32,
-      height: 40,
-    },
-  },
-  colors: ["#ff9a00", "#ff7400", "#ff4d00"],
-});
-confetti({
-  ...defaults,
-  shapes: ["image"],
-  shapeOptions: {
-    image: {
-      src: "shape1.png",
-      replaceColor: true,
-      width: 271,
-      height: 351.5,
-    },
-  },
-  colors: ["#8d960f", "#be0f10", "#445404"],
-});
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+  <script>
 
 
 
+    window.addEventListener("load", () => {
+
+      var defaults = {
+
+        scalar: 2,
+        spread: 270,
+        particleCount: 4,
+        origin: { y: 0.4 },
+        startVelocity: 35,
+      };
+      const end = Date.now() + 2 * 1000;
+
+      (function frame() {
+        confetti({
+          ...defaults,
+          shapes: ["image"],
+          shapeOptions: {
+            image: {
+              src: "shape2.png",
+              replaceColor: true,
+              width: 200,
+              height: 300,
+            },
+          },
         });
+        confetti({
+        ...defaults,
+        shapes: ["image"],
+        shapeOptions: {
+          image: {
+            src: "shape1.png",
+            replaceColor: true,
+            width: 100,
+            height: 100,
+          },
+        },
+      });
+
+        
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
+
+     
 
 
-    </script>
+
+    });
+
+
+  </script>
 
 </body>
 
