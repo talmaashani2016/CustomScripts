@@ -1,7 +1,7 @@
 <!doctype html>
  <html lang="en">
    <head>
-     <title>Contoso Sample Web Chat</title>
+     <title>PODIA OQBI Bot</title>
      <!--
        This styling is for the Web Chat demonstration purposes.
        It is recommended that style is moved to a separate file for organization in larger projects.
@@ -12,42 +12,179 @@
        html,
        body {
          height: 100%;
+        background-image: url('https://talmaashani2016.github.io/CustomScripts/2%2012.png');
+        margin: 0 0 0 0 ;
+        padding: 0;
+         font-family: 'ArticualteCustom' !important; 
+         font-weight:300 !important;
+         border-color: black !important;
+         border-width: 5px !important;
        }
 
-       body {
-         margin: 0;
-       }
 
+ 
+       
+       
        h1 {
          color: White;
-         font-family: Articulate;
+         font-family: 'ArticualteCustom' !important;
          font-size: 24px;
          line-height: 20px;
          margin: 0;
-         padding: 0 0px;
+         padding: 20px 15px 15px 15px;
        }
-
+       @font-face {
+  font-family: 'ArticualteCustom'; /* Name for your font */
+  src: url('https://github.com/talmaashani2016/CustomScripts/blob/main/ArticulatCF-Medium.otf') format('otf'), 
+  /* Add more font formats as needed */
+}
        #banner {
          align-items: center;
          background-color: #1e4e52;
          display: flex;
-         height: 70px;
+         height: 50px;
+         position: relative;
+         padding: 15px 30px 15px 30px;
+         /* margin: 15px 15px 15px 15px; */
        }
+
+        #logo {
+        margin-left: auto; /* Add margin to create space between image and text */
+        max-width: 30%; /* Set a maximum width for the image */
+        max-height: 50%; 
+        /* Adjust as needed */ 
+        /* float: right; */
+      }
+       .react-film__filmstrip__list{
+        margin-left: 50px !important;
+        margin-bottom: 50px !important;
+        margin-top: 40px !important;
+        margin-right: 50px !important;
+       }
+       
+
+       .webchat__icon-button__shade{
+        background-color: #1e4e52;
+       }
+      .webchat__icon-button__shade{
+
+               border-radius:30px !important;
+               padding-left:10px ;
+       }
+      .webchat__send-box .webchat__send-box__main{
+        background-color: #1e4e5200 !important;
+        border-top: 0px !important;
+        margin-bottom: 20px !important;
+        margin-left: 50px !important;
+        margin-right: 20px !important;
+        gap: 10px !important; 
+
+      }
+      .webchat__suggested-action {
+        /* background: linear-gradient(to right, #62cad7, #9fcdbf, #c3c9a1, #f3dc85) !important; */
+        background:#1c4c54 !important;
+        color: white !important;
+      font-family: 'ArticualteCustom' !important;
+      font-size: large !important;
+      border-width: 0 !important;
+      border-radius: 15px !important;
+
+      }
+
+      .webchat__suggested-actions__item-box {
+    position: relative;
+    margin: 0 0 0 15px;
+    width: 90px !important;
+    height: 100%;
+    /* background: linear-gradient(0deg, #000, #272727); */
+  }
+
+  .webchat__suggested-actions__item-box:before,
+  .webchat__suggested-actions__item-box:after {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 3px;
+  border-radius: 15px !important;
+  background: linear-gradient(45deg,#ff8220, #62cad7, #1c4c54);
+  background-size: 400%;
+  width: 96%;
+  height: 74%;
+  z-index: -1;
+  animation: steam 20s linear infinite;
+}
+@keyframes steam {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+.webchat__suggested-actions__item-box:after {
+  filter: blur(13px);
+}
+     
+  
+
+      .webchat__send-box-text-box {
+        /* Base styles */
+        border-radius: 20px;
+        min-width: 60% !important; 
+        box-sizing: border-box; 
+
+        /* Customize these styles as needed */
+        background-color: white; 
+        color: #333; 
+        font-size: 16px; 
+      }
+
 
        #webchat {
          height: calc(100% - 70px);
          overflow: hidden;
          position: fixed;
+         font-weight: 800 !important;
          top: 70px;
          width: 100%;
        }
+
+/* HTML: <div class="loader"></div> */
+.webchat__typingIndicator {
+  width: 120px;
+  height: 22px;
+  border-radius: 40px;
+  color: #1e4e52;
+  border: 2px solid;
+  position: relative;
+  margin-left: 10px;
+}
+.webchat__typingIndicator::before {
+  content: "";
+  position: absolute;
+  margin: 2px;
+  width: 25%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+  background: currentColor;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+    50% {left:100%;transform: translateX(calc(-100% - 4px))}
+}
      </style>
    </head>
    <body>
-     <div>
+     <div id="block">
        <div id="banner">
-      <img src="https://raw.githubusercontent.com/talmaashani2016/CustomScripts/refs/heads/main/podia%20(2).webp"  style="float:left;width:64px;height:64px;">
-         <h1>PODIA</h1> 
+      <img src="https://talmaashani2016.github.io/CustomScripts/PODIA%20ICON-_-%20(1).png"  style="float:left;width:150px;height:70px;">
+         <img id ="logo" src="https://raw.githubusercontent.com/talmaashani2016/CustomScripts/refs/heads/main/Oqbi%20Logo%20White.png">
+
        </div>
        <div id="webchat" role="main"></div>
      </div>
@@ -66,18 +203,18 @@
          // Please visit https://microsoft.github.io/BotFramework-WebChat for customization samples.
          const styleOptions = {
            // Hide upload button.
-           backgroundColor: '#1e4e5280',
+           backgroundColor: '#ffffff00',
            cardEmphasisBackgroundColor: '#F0F0F0',
            paddingRegular: 10,
            paddingWide: 10 * 2,
            subtle: '#767676',
            //send box 
            hideSendBox: false,
-            hideUploadButton: false,
+           hideUploadButton: true,
             microphoneButtonColorOnDictate: '#F33',
-            sendBoxBackground: 'White',
-            sendBoxButtonColor: '#1e4e52',
-            bubbleFromUserBackground: "#1e4e5260",
+            // sendBoxBackground: undefined,
+            sendBoxButtonColor: 'White',
+            bubbleFromUserBackground: "#1e4e52",
             bubbleFromUserTextColor: 'White',// defaults to subtle
             sendBoxButtonColorOnDisabled: '#CCC',
             sendBoxButtonColorOnFocus: '#333',
@@ -88,22 +225,22 @@
             sendBoxTextColor: 'Black',
             sendBoxBorderBottom: '',
             sendBoxBorderLeft: '',
-            suggestedActionBorderColor: '#1e4e5280',
-            suggestedActionBoarderWidth: 0, // defaults to accent
+            // suggestedActionBorderColor: '#1e4e5280',
+            suggestedActionBoarderWidth: 0,
             sendBoxBorderRight: '',
             sendBoxBorderTop: 'solid 1px #E6E6E6',
             sendBoxPlaceholderColor: undefined, // defaults to subtle
             sendBoxTextWrap: false,
-            primaryFont: 'Articulate',
-            suggestedActionBorderRadius: 15,
+            // primaryFont: ('ArticualteCustom', 'avenir'),
+            // suggestedActionBorderRadius: 15,
             bubbleBorderRadius: 15,
             userAvatarInitials: 'ME',
             botAvatarInitials: '',
             botAvatarBackgroundColor:'#1e4e52',
-            suggestedActionBackgroundColor: 'White',
+            // suggestedActionBackgroundColor: 'White',
             suggestedActionTextColor: '#1e4e52',
-            bubbleBackground: '#1e4e52',
-            bubbleTextColor: 'White',
+            bubbleBackground: 'White',
+            bubbleTextColor: '#1e4e52',
             showSpokenText: true,
             timestampColor: 'White', 
             markdownRespectCRLF: false,
@@ -112,6 +249,8 @@
             bubbleNubOffset: 'bottom',
             bubbleNubSize: 10,
             bubbleFromUserNubSize: 10,
+            spinnerAnimationWidth: 10,
+
 
 // defaults to subtle
 
