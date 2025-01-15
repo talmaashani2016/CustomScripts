@@ -190,7 +190,12 @@
       filter: blur(3px);
     }
 
-
+    /* remove the outline aorund the chatbox */
+    .webchat__basic-transcript:focus .webchat__basic-transcript__activity-indicator--focus {
+  border: 0px !important;
+  /* border-color: red !important;
+  border-style: dotted !important; */
+}
 
     .webchat__send-box-text-box {
       /* Base styles */
@@ -232,6 +237,7 @@
       margin-left: 10px;
     }
 
+
     .webchat__typingIndicator::before {
       content: "";
       position: absolute;
@@ -264,6 +270,7 @@
     .ac-container.ac-adaptiveCard {
       background: #1e4e5230 !important;
     }
+
   </style>
 </head>
 
@@ -428,7 +435,11 @@
 
       WebChat.renderWebChat({ directLine, locale, styleOptions }, document.getElementById('webchat'));
     })();
+
+ 
+
   </script>
+
 </body>
 
 </html>
