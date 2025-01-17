@@ -22,7 +22,8 @@
       /* padding: 2em; */
       height: 90%;
       width: 95%;
-      background-image: url('https://talmaashani2016.github.io/CustomScripts/1%208.png');
+      background-color:white;
+      /* background-image: url('https://talmaashani2016.github.io/CustomScripts/2%2012.png'); */
       text-align: center;
       border-radius: 10px;
       position: relative;
@@ -40,7 +41,7 @@
       position: absolute;
       height: 100%;
       width: 100%;
-      background-image: conic-gradient(from var(--angle), #ff8220, #04acbc, #1e4e52, #04acbc, #ff8220);
+      background-image: conic-gradient(from var(--angle), #333, #04acbc, #1e4e52, #333);
       top: 50%;
       left: 50%;
       translate: -50% -50%;
@@ -85,12 +86,12 @@
 
     #banner {
       align-items: center;
-      background-color: #1e4e52;
+      background-color:#333;
       display: flex;
       height: 50px;
       position: relative;
       padding: 15px 30px 15px 30px;
-      border-radius: 10px;
+      border-radius: 8px 8px 0 0;
 
       /* margin: 15px 15px 15px 15px; */
     }
@@ -105,33 +106,19 @@
       /* float: right; */
     }
 
+
+
+    .react-film__filmstrip__list{
+      padding-left: 30px !important;
+      padding-top: 10px !important;
+    }
+    /* .react-film__filmstrip__list {
+      padding: 0 200px 0 0 !important;
+    } */
     .webchat__send-box .webchat__send-box__main {
-      margin-left: 50px !important;
-      margin-bottom: 50px !important;
-      margin-top: 20px !important;
-      margin-right: 50px !important;
-    }
 
-
-    .webchat__icon-button__shade {
-      background-color: #1e4e52;
-    }
-
-    .webchat__icon-button__shade {
-
-      border-radius: 30px !important;
-      padding-left: 10px;
-    }
-
-    .webchat__send-box .webchat__send-box__main {
-      /* position: inherit;
-  
-  left: 50%;
-  transform: translate(50%, 0%);  */
-      /* width: 50% !important; */
-      background-color: #1e4e5200 !important;
-      border-top: 20px !important;
-      margin-bottom: 20px !important;
+      border-top: 0px !important;
+      /* margin-bottom: 20px !important; */
       margin-left: 50px !important;
       margin-right: 50px !important;
       gap: 10px !important;
@@ -140,12 +127,15 @@
 
     .webchat__suggested-action {
       /* background: linear-gradient(to right, #62cad7, #9fcdbf, #c3c9a1, #f3dc85) !important; */
-      background: #1c4c54 !important;
+      background: #333 !important;
       color: white !important;
       font-family: 'ArticualteCustom' !important;
       font-size: large !important;
       border-width: 0 !important;
       border-radius: 15px !important;
+      border: 0px !important;
+
+
 
     }
 
@@ -154,6 +144,7 @@
       margin: 0 0 0 15px;
       width: 90px !important;
       height: 100%;
+
       /* background: linear-gradient(0deg, #000, #272727); */
     }
 
@@ -164,7 +155,7 @@
       left: 2px;
       top: 3px;
       border-radius: 15px !important;
-      background: linear-gradient(45deg, #ff8220, #62cad7, #1c4c54);
+      background: linear-gradient(45deg, #333, Black,#333);
       background-size: 400%;
       width: 96%;
       height: 74%;
@@ -187,7 +178,7 @@
     }
 
     .webchat__suggested-actions__item-box:after {
-      filter: blur(3px);
+      filter: blur(2px);
     }
 
     /* remove the outline aorund the chatbox */
@@ -196,22 +187,49 @@
   /* border-color: red !important;
   border-style: dotted !important; */
 }
+/* The whole box of text input and button */
+.webchat__send-box .webchat__send-box__main {
+      margin-left: 50px !important;
+      margin-bottom: 50px !important;
+      margin-top: 20px !important;
+      margin-right: 50px !important;
+      /* padding-right: 0.75erm; */
+      background-color: #f7f7f7 !important;
+      border-radius: 15px !important;
+      width: 70% !important;
+    }
 
+    /* Text input */
     .webchat__send-box-text-box {
       /* Base styles */
       border-radius: 20px;
-      width: 60% !important;
+      /* width: 60% !important; */
+      /* background-color: red !important; */
       box-sizing: border-box;
+      width: 67% !important;
+      position: fixed !important;
 
 
       /* Customize these styles as needed */
-      background-color: white;
       color: #333;
       font-size: 16px;
       font-family: 'ArticualteCustom' !important;
+    }
 
+      /* Send Button CSS */
+
+    .webchat__icon-button__shade {
+
+      border-radius: 30px !important;
+      padding-left: 10px !important;
+      background-color: #f7f7f7 !important;
 
     }
+ .webchat__icon-button{
+            margin-left: 88% !important;
+    }
+
+    
 
 
     #webchat {
@@ -231,7 +249,7 @@
       width: 120px;
       height: 22px;
       border-radius: 40px;
-      color: #1e4e52;
+      color: #333;
       border: 2px solid;
       position: relative;
       margin-left: 10px;
@@ -259,7 +277,9 @@
     }
 
     .webchat__stacked-layout__status {
-      text-shadow: 2px 2px #1c4c54 !important;
+      text-shadow: 0.5px 0.5px #04acbc !important;
+      /* background-color: #04acbc; */
+
 
     }
 
@@ -268,7 +288,7 @@
     }
 
     .ac-container.ac-adaptiveCard {
-      background: #1e4e5230 !important;
+      background: transparent !important;
     }
 
   </style>
@@ -310,10 +330,10 @@
         hideSendBox: false,
         hideUploadButton: true,
         microphoneButtonColorOnDictate: '#F33',
-        // sendBoxBackground: undefined,
-        sendBoxButtonColor: 'White',
-        bubbleFromUserBackground: "#1e4e52",
-        bubbleFromUserTextColor: 'White',// defaults to subtle
+        /* sendBoxBackground: 'Red', */
+        sendBoxButtonColor: '#333',
+        bubbleFromUserBackground: '#f7f7f7',
+        bubbleFromUserTextColor: 'Black',// defaults to subtle
         sendBoxButtonColorOnDisabled: '#CCC',
         sendBoxButtonColorOnFocus: '#333',
         sendBoxButtonColorOnHover: '#333',
@@ -334,16 +354,17 @@
         bubbleBorderRadius: 15,
         userAvatarInitials: 'ME',
         botAvatarInitials: '',
-        botAvatarBackgroundColor: '#1e4e52',
+        botAvatarBackgroundColor: '#000411',
         // suggestedActionBackgroundColor: 'White',
         suggestedActionTextColor: '#1e4e52',
-        bubbleBackground: 'White',
-        bubbleTextColor: '#1e4e52',
+        /* bubbleBackground: '#f7f7f7', */
+        bubbleBorderWidth: 1,
+        bubbleTextColor: 'Black',
         showSpokenText: true,
-        timestampColor: 'White',
+        timestampColor: 'Black',
         markdownRespectCRLF: false,
         bubbleFromUserBorderRadius: 15,
-        userAvatarBackgroundColor: '#1e4e52',
+        userAvatarBackgroundColor: '#000411',
         bubbleNubOffset: 'bottom',
         bubbleNubSize: 10,
         bubbleFromUserNubSize: 10,
@@ -355,7 +376,7 @@
 
 
         avatarSize: 40,
-        botAvatarImage: 'https://raw.githubusercontent.com/talmaashani2016/CustomScripts/refs/heads/main/podia%20(2).webp',
+        botAvatarImage: 'https://raw.githubusercontent.com/talmaashani2016/CustomScripts/refs/heads/main/podia_art.png',
 
 
 
@@ -430,15 +451,40 @@
           }
         }
       });
+      setTimeout(() => {
+     const inputElements = document.getElementsByClassName('webchat__send-box-text-box__input'); 
+  if (inputElements.length > 0) {
+    const firstInputElement = inputElements[0]; 
+    console.log(firstInputElement); // Check if the element is correct
+    firstInputElement.placeholder = "Ask your question"; 
+  } else {
+    console.error("Placeholder...please check the code on github talmaashani2016 - OQBI IDS"); 
+  }
+}, 200);
+
+setTimeout(()=> {
+  const svg_image = document.getElementsByTagName('path');
+  if (svg_image.length > 0) {
+    const path = svg_image[7]; 
+    console.log(path); // Check if the element is correct
+    path.setAttribute('d', "M 31.832031 2.097656 C 31.734375 2.007812 31.609375 1.960938 31.480469 1.960938 C 31.40625 1.960938 31.328125 1.976562 31.253906 2.011719 L 0.511719 17.09375 C 0.195312 17.25 -0.00390625 17.570312 0 17.921875 C 0.00390625 18.269531 0.203125 18.589844 0.519531 18.742188 L 8.625 22.601562 L 24.824219 9.285156 L 10.632812 23.558594 L 20.726562 28.367188 C 20.847656 28.425781 20.984375 28.457031 21.117188 28.457031 C 21.234375 28.457031 21.347656 28.4375 21.453125 28.394531 C 21.6875 28.300781 21.875 28.113281 21.96875 27.878906 L 31.964844 2.667969 C 32.042969 2.46875 31.992188 2.242188 31.832031 2.097656 Z M 31.832031 2.097656 ")
+    console.log(path.d)
+    /*svg_image.placeholder = "Ask your question";  */
+  } else {
+    console.error("SVG ... please check the code on github talmaashani2016 - OQBI IDS"); 
+  }
+}, 500);
 
 
 
-      WebChat.renderWebChat({ directLine, locale, styleOptions }, document.getElementById('webchat'));
+      WebChat.renderWebChat({ directLine, locale,styleOptions }, document.getElementById('webchat'));
     })();
+
 
  
 
   </script>
+
 
 </body>
 
