@@ -3,6 +3,8 @@
 
 <head>
   <style>
+@import url('https://fonts.cdnfonts.com/css/avenir');
+
     html,
     body {
       margin: 0;
@@ -12,6 +14,8 @@
       align-items: center;
       height: 100%;
       width: 100%;
+      font-family: 'Avenir', sans-serif !important;
+      font-weight: lighter !important;
       border-radius: 10px;
 
 
@@ -22,8 +26,9 @@
       /* padding: 2em; */
       height: 90%;
       width: 95%;
-      background-color:white;
-      /* background-image: url('https://talmaashani2016.github.io/CustomScripts/2%2012.png'); */
+      /* background-color:white; */
+      background-image: url('https://talmaashani2016.github.io/CustomScripts/1%208.png');
+      background-size: contain;
       text-align: center;
       border-radius: 10px;
       position: relative;
@@ -70,19 +75,13 @@
 
     h1 {
       color: White;
-      font-family: 'ArticualteCustom' !important;
-      font-size: 24px;
+      font-family: 'Avenir', sans-serif !important;
+      font-size: 36px;
       line-height: 20px;
       margin: 0;
-      padding: 20px 15px 15px 15px;
+      padding: 20px 0px 15px 0px;
     }
 
-    @font-face {
-      font-family: 'ArticualteCustom';
-      /* Name for your font */
-      src: url('https://github.com/talmaashani2016/CustomScripts/blob/main/ArticulatCF-Medium.otf') format('otf'),
-        /* Add more font formats as needed */
-    }
 
     #banner {
       align-items: center;
@@ -90,7 +89,7 @@
       display: flex;
       height: 50px;
       position: relative;
-      padding: 15px 30px 15px 30px;
+      padding: 15px 20px 15px 10px;
       border-radius: 8px 8px 0 0;
 
       /* margin: 15px 15px 15px 15px; */
@@ -99,9 +98,9 @@
     #logo {
       margin-left: auto;
       /* Add margin to create space between image and text */
-      max-width: 30%;
+      max-width: 40%;
       /* Set a maximum width for the image */
-      max-height: 50%;
+      max-height: 60%;
       /* Adjust as needed */
       /* float: right; */
     }
@@ -127,10 +126,10 @@
 
     .webchat__suggested-action {
       /* background: linear-gradient(to right, #62cad7, #9fcdbf, #c3c9a1, #f3dc85) !important; */
-      background: #333 !important;
+      background: #ff8220 !important;
       color: white !important;
-      font-family: 'ArticualteCustom' !important;
-      font-size: large !important;
+      font-family: 'Avenir', sans-serif !important;
+font-weight: 700 !important;
       border-width: 0 !important;
       border-radius: 15px !important;
       border: 0px !important;
@@ -142,7 +141,7 @@
     .webchat__suggested-actions__item-box {
       position: relative;
       margin: 0 0 0 15px;
-      width: 90px !important;
+      width: 80% !important;
       height: 100%;
 
       /* background: linear-gradient(0deg, #000, #272727); */
@@ -155,7 +154,7 @@
       left: 2px;
       top: 3px;
       border-radius: 15px !important;
-      background: linear-gradient(45deg, #333, Black,#333);
+      background: linear-gradient(45deg, #a09e9e,#9b9999, transparent);
       background-size: 400%;
       width: 96%;
       height: 74%;
@@ -180,6 +179,9 @@
     .webchat__suggested-actions__item-box:after {
       filter: blur(2px);
     }
+    .webchat__suggested-actions__focus-indicator{
+      border: 0 !important;
+    }
 
     /* remove the outline aorund the chatbox */
     .webchat__basic-transcript:focus .webchat__basic-transcript__activity-indicator--focus {
@@ -196,7 +198,7 @@
       /* padding-right: 0.75erm; */
       background-color: #f7f7f7 !important;
       border-radius: 15px !important;
-      width: 70% !important;
+      width: 85% !important;
     }
 
     /* Text input */
@@ -213,7 +215,7 @@
       /* Customize these styles as needed */
       color: #333;
       font-size: 16px;
-      font-family: 'ArticualteCustom' !important;
+      font-family: 'Avenir', sans-serif !important;
     }
 
       /* Send Button CSS */
@@ -226,17 +228,22 @@
 
     }
  .webchat__icon-button{
-            margin-left: 88% !important;
+            margin-left: 90% !important;
     }
 
     
+p {
+  font-family: 'Avenir', sans-serif !important;
 
+}
 
     #webchat {
       /* crittical for position text input message */
 
       position: static;
-      font-weight: 800 !important;
+      font-weight: normal !important;
+      font-family: 'Avenir', sans-serif !important;
+      margin-right: 50px !important;
       bottom: 1000px;
       width: 100%;
       height: inherit;
@@ -276,12 +283,11 @@
       }
     }
 
-    .webchat__stacked-layout__status {
-      text-shadow: 0.5px 0.5px #04acbc !important;
+    /* .webchat__stacked-layout__status {
+      /* text-shadow: 0.5px 0.5px #04acbc !important; */
       /* background-color: #04acbc; */
 
-
-    }
+    
 
     .ac-columnSet {
       padding: 0 0 0 20px !important;
@@ -298,8 +304,10 @@
 
   <div class="card">
     <div id="banner">
-      <img src="https://talmaashani2016.github.io/CustomScripts/PODIA%20ICON-_-%20(1).png"
-        style="float:left;width:150px;height:70px;">
+      <img src="https://raw.githubusercontent.com/talmaashani2016/CustomScripts/refs/heads/main/lets%20name%20him%20(1).png"
+        style="float:left;width:70px;height:70px">
+
+      <h1>PODIA</h1>
       <img id="logo"
         src="https://raw.githubusercontent.com/talmaashani2016/CustomScripts/refs/heads/main/Oqbi%20Logo%20White.png">
 
@@ -343,28 +351,29 @@
         sendBoxTextColor: 'Black',
         sendBoxBorderBottom: '',
         sendBoxBorderLeft: '',
-        // suggestedActionBorderColor: '#1e4e5280',
-        suggestedActionBoarderWidth: 0,
+        suggestedActionBorderColor: 'White',
+        suggestedActionBorder:0,
         sendBoxBorderRight: '',
+        suggestedActionDisabledBorder: true,
         sendBoxBorderTop: 'solid 1px #E6E6E6',
         sendBoxPlaceholderColor: undefined, // defaults to subtle
         sendBoxTextWrap: false,
-        // primaryFont: ('ArticualteCustom', 'avenir'),
+        // primaryFont: ('Avenir'),
         // suggestedActionBorderRadius: 15,
         bubbleBorderRadius: 15,
         userAvatarInitials: 'ME',
         botAvatarInitials: '',
-        botAvatarBackgroundColor: '#000411',
-        // suggestedActionBackgroundColor: 'White',
+        botAvatarBackgroundColor: '#3b3b3b',
+        //suggestedActionBackgroundColor: 'White',
         suggestedActionTextColor: '#1e4e52',
-        /* bubbleBackground: '#f7f7f7', */
+        bubbleBackground: ' #dbdbdb',
         bubbleBorderWidth: 1,
         bubbleTextColor: 'Black',
         showSpokenText: true,
         timestampColor: 'Black',
         markdownRespectCRLF: false,
         bubbleFromUserBorderRadius: 15,
-        userAvatarBackgroundColor: '#000411',
+        userAvatarBackgroundColor: '#3b3b3b',
         bubbleNubOffset: 'bottom',
         bubbleNubSize: 10,
         bubbleFromUserNubSize: 10,
@@ -375,7 +384,7 @@
 
 
 
-        avatarSize: 40,
+        avatarSize: 45,
         botAvatarImage: 'https://raw.githubusercontent.com/talmaashani2016/CustomScripts/refs/heads/main/podia_art.png',
 
 
@@ -456,7 +465,7 @@
   if (inputElements.length > 0) {
     const firstInputElement = inputElements[0]; 
     console.log(firstInputElement); // Check if the element is correct
-    firstInputElement.placeholder = "Ask your question"; 
+    firstInputElement.placeholder = "Ask your question 🤗"; 
   } else {
     console.error("Placeholder...please check the code on github talmaashani2016 - OQBI IDS"); 
   }
@@ -467,7 +476,7 @@ setTimeout(()=> {
   if (svg_image.length > 0) {
     const path = svg_image[7]; 
     console.log(path); // Check if the element is correct
-    path.setAttribute('d', "M 31.832031 2.097656 C 31.734375 2.007812 31.609375 1.960938 31.480469 1.960938 C 31.40625 1.960938 31.328125 1.976562 31.253906 2.011719 L 0.511719 17.09375 C 0.195312 17.25 -0.00390625 17.570312 0 17.921875 C 0.00390625 18.269531 0.203125 18.589844 0.519531 18.742188 L 8.625 22.601562 L 24.824219 9.285156 L 10.632812 23.558594 L 20.726562 28.367188 C 20.847656 28.425781 20.984375 28.457031 21.117188 28.457031 C 21.234375 28.457031 21.347656 28.4375 21.453125 28.394531 C 21.6875 28.300781 21.875 28.113281 21.96875 27.878906 L 31.964844 2.667969 C 32.042969 2.46875 31.992188 2.242188 31.832031 2.097656 Z M 31.832031 2.097656 ")
+    path.setAttribute('d', "M 36.527344 14.546875 L 6.609375 0.46875 C 4.917969 -0.351562 2.925781 -0.0664062 1.527344 1.1875 C 0.125 2.449219 -0.359375 4.410156 0.285156 6.179688 C 0.316406 6.25 7.636719 20.007812 7.636719 20.007812 C 7.636719 20.007812 0.449219 33.757812 0.425781 33.828125 C -0.21875 35.601562 0.273438 37.558594 1.671875 38.816406 C 2.542969 39.59375 3.636719 39.996094 4.742188 39.996094 C 5.421875 39.996094 6.105469 39.84375 6.742188 39.53125 L 36.53125 25.46875 C 38.671875 24.464844 40 22.371094 40 20.003906 C 40 17.636719 38.664062 15.546875 36.527344 14.546875 Z M 3.386719 4.945312 C 3.183594 4.253906 3.617188 3.796875 3.757812 3.664062 C 3.90625 3.535156 4.449219 3.125 5.15625 3.472656 C 5.164062 3.476562 35.113281 17.5625 35.113281 17.5625 C 35.511719 17.75 35.839844 18.011719 36.097656 18.332031 L 10.523438 18.332031 Z M 35.109375 22.453125 L 5.296875 36.527344 C 4.589844 36.875 4.046875 36.46875 3.898438 36.335938 C 3.757812 36.207031 3.324219 35.746094 3.527344 35.054688 L 10.53125 21.667969 L 36.105469 21.667969 C 35.851562 21.992188 35.515625 22.261719 35.113281 22.453125 Z M 35.109375 22.453125 ")
     console.log(path.d)
     /*svg_image.placeholder = "Ask your question";  */
   } else {
