@@ -144,7 +144,7 @@
 
     .webchat__suggested-action {
       /* background: linear-gradient(to right, #62cad7, #9fcdbf, #c3c9a1, #f3dc85) !important; */
-      background: #ff8220 !important;
+      background: #333 !important;
       color: white !important;
       font-family: 'Avenir-Ar', sans-serif !important;
 font-weight: 700 !important;
@@ -172,9 +172,9 @@ font-weight: 700 !important;
       left: 2px;
       top: 3px;
       border-radius: 15px !important;
-      background: linear-gradient(45deg, #a09e9e,#9b9999, transparent);
+      background: linear-gradient(45deg, #04acbc,#9b9999, transparent);
       background-size: 400%;
-      width: 96%;
+      width: 94%;
       height: 74%;
       z-index: -1;
       animation: steam 20s linear infinite;
@@ -273,31 +273,25 @@ font-weight: 700 !important;
       height: 22px;
       border-radius: 40px;
       color: #333;
-      border: 2px solid;
+      border: 0px solid;
       position: relative;
       margin-left: 10px;
+      background: white
     }
 
 
-    .webchat__typingIndicator::before {
-      content: "";
-      position: absolute;
-      margin: 2px;
-      width: 25%;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      border-radius: inherit;
-      background: currentColor;
-      animation: l3 1s infinite linear;
-    }
-
-    @keyframes l3 {
-      50% {
-        left: 100%;
-        transform: translateX(calc(-100% - 4px))
-      }
-    }
+    .webchat__typingIndicator::after {
+      width: 15px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: l5 1s infinite linear alternate;
+}
+@keyframes l5 {
+    0%  {box-shadow: 20px 0 #000, -20px 0 #0002;background: #000 }
+    33% {box-shadow: 20px 0 #000, -20px 0 #0002;background: #0002}
+    66% {box-shadow: 20px 0 #0002,-20px 0 #000; background: #0002}
+    100%{box-shadow: 20px 0 #0002,-20px 0 #000; background: #000 }
+}
 
     /* .webchat__stacked-layout__status {
       /* text-shadow: 0.5px 0.5px #04acbc !important; */
@@ -320,10 +314,10 @@ font-weight: 700 !important;
 
   <div class="card">
     <div id="banner">
-      <img src="https://raw.githubusercontent.com/talmaashani2016/CustomScripts/refs/heads/main/podia%20logo.png"
-      style="float:left;width:50px;height:50px;">
+      <img src="https://raw.githubusercontent.com/talmaashani2016/CustomScripts/refs/heads/main/minitm.png"
+      style="float:left;width:45px;height:48px;">
       <h1>PODIA</h1>
-      <h2>Bot</h2>
+      <h2>BOT</h2>
 
   
       <img id="logo"
@@ -507,11 +501,32 @@ setTimeout(()=> {
 }, 500);
 
 setTimeout(()=> {
+  const end = Date.now() + 3 * 1000;
+
+// go Buckeyes!
+const colors = ["#ff8220", "#1e4e52"];
+
+(function frame() {
   confetti({
-  particleCount: 200,
-  spread: 100,
-  origin: { y: 0.55 }
-});
+    particleCount: 2,
+    angle: 60,
+    spread: 55,
+    origin: { x: 0 },
+    colors: colors,
+  });
+
+  confetti({
+    particleCount: 2,
+    angle: 120,
+    spread: 55,
+    origin: { x: 1 },
+    colors: colors,
+  });
+
+  if (Date.now() < end) {
+    requestAnimationFrame(frame);
+  }
+})();
 }, 4000);
 
 
