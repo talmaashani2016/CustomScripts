@@ -338,41 +338,7 @@ font-weight: 500 !important;
   if (typeof Msal === 'undefined') document.write(unescape("%3Cscript src='https://alcdn.msftauth.net/lib/1.2.0/js/msal.js' type='text/javascript' %3E%3C/script%3E"));
 </script>
   <script src ="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-
-<script>
-  
-  var clientApplication;
-     (function (){
-       var msalConfig = {
-	   auth: {
-	     clientId: '8c45c1a8-f271-488b-85aa-1b4f06d0a2b6',
-	     authority: 'https://login.microsoftonline.com/b8ad8656-3bdc-47ec-b9b4-84a142b7e134'
-	   },
-	   cache: {
-	     cacheLocation: 'localStorage',
-	     storeAuthStateInCookie: false
-	   }
-       };
-       if (!clientApplication) {
-	 clientApplication = new Msal.UserAgentApplication(msalConfig);
-       }
-     } ());
-    function onSignin(idToken) {
-      let user = clientApplication.getAccount();
-      // document.getElementById("userName").innerHTML = "Currently logged in as " + user.name;
-      let requestObj1 = {
-	scopes: ["user.read", 'openid', 'profile']
-      };
-    }
-
-    function onSignInClick() {
-      let requestObj = {
-	scopes: ["user.read", 'openid', 'profile']
-      };
-
-      clientApplication.loginPopup(requestObj).then(onSignin).catch(function (error) {console.log(error) });
-    }
-  </script>
+	
   <script>
     var clientApplication;
     (function (){
