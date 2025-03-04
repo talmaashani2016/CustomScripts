@@ -618,7 +618,10 @@ const colors = ["#ff8220", "#1e4e52"];
 }, 4000);
 
 
-      WebChat.renderWebChat({ directLine, locale,styleOptions }, document.getElementById('webchat'));
+      WebChat.renderWebChat({ directLine, locale,
+			             tokenExchangeUrl: 'https://token.botframework.com/.auth/web/exchange'
+,
+styleOptions }, document.getElementById('webchat'));
     })();
 
 
