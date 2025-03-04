@@ -382,7 +382,9 @@ font-weight: 500 !important;
             authority: 'https://login.microsoftonline.com/b8ad8656-3bdc-47ec-b9b4-84a142b7e134'     
         }}}),
     (async function () {
-      
+        let requestObj = {
+	scopes: ["user.read", 'openid', 'profile']
+      };
         if (clientApplication.getAccount() == null) {
            await clientApplication.loginPopup(requestObj).then(onSignin).catch(function (error) {console.log(error) });
         }
