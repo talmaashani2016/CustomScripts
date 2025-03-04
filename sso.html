@@ -194,7 +194,9 @@ async function fetchJSON(url, options = {}) {
 
     // Add your BOT ID below 
     var theURL = "https://defaultb8ad86563bdc47ecb9b484a142b7e1.34.environment.api.powerplatform.com/powervirtualagents/botsbyschema/cr4d9_podia/directline/token?api-version=2022-03-01-preview" // you can find the token URL via the mobile app channel configuration
+      const locale = document.documentElement.lang || 'en'; // Uses language specified in <html> element and fallback to English (United States).
 
+	
 	var userId = clientApplication.account?.accountIdentifier != null ? 
 					("You-customized-prefix" + clientApplication.account.accountIdentifier).substr(0, 64) 
 					: (Math.random().toString() + Date.now().toString()).substr(0,64);
