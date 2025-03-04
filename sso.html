@@ -270,7 +270,8 @@ async function fetchJSON(url, options = {}) {
 	      window.WebChat.renderWebChat(
 		  {
 		       directLine,
-			  // userID:userId,
+			  locale,
+			  userID:userId,
 		      styleOptions
 		  },
 		  document.getElementById('webchat')
