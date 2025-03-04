@@ -348,7 +348,7 @@ font-weight: 500 !important;
   <script>
 function onSignin(idToken) {
       let user = clientApplication.getAccount();
-      document.getElementById("userName").innerHTML = "Currently logged in as " + user.name;
+	console.log("Logged in Successfully - Tariq")
       let requestObj1 = {
 	scopes: ["user.read", 'openid', 'profile']
       };
