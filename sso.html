@@ -308,6 +308,24 @@ font-weight: 500 !important;
     }
 
   </style>
+	 <script>
+   var clientApplication;
+     (function () {
+       var msalConfig = {
+           auth: {
+             clientId: '8c45c1a8-f271-488b-85aa-1b4f06d0a2b6',
+             authority: 'https://login.microsoftonline.com/<Directory ID>'
+           },
+           cache: {
+             cacheLocation: 'localStorage',
+             storeAuthStateInCookie: false
+           }
+       };
+       if (!clientApplication) {
+         clientApplication = new Msal.UserAgentApplication(msalConfig);
+       }
+     } ());
+ </script>
 </head>
 
 <body>
@@ -338,22 +356,122 @@ font-weight: 500 !important;
   if (typeof Msal === 'undefined') document.write(unescape("%3Cscript src='https://alcdn.msftauth.net/lib/1.2.0/js/msal.js' type='text/javascript' %3E%3C/script%3E"));
 </script>
   <script src ="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+	<script>
+function getOAuthCardResourceUri(activity) {
+  if (activity &&
+       activity.attachments &&
+       activity.attachments[0] &&
+       activity.attachments[0].contentType === 'application/vnd.microsoft.card.oauth' &&
+       activity.attachments[0].content.tokenExchangeResource) {
+         // asking for token exchange with Microsoft Entra ID
+         return activity.attachments[0].content.tokenExchangeResource.uri;
+   }
+}
+
+function exchangeTokenAsync(resourceUri) {
+  let user = clientApplication.getAccount();
+   if (user) {
+     let requestObj = {
+       scopes: [resourceUri]
+     };
+     return clientApplication.acquireTokenSilent(requestObj)
+       .then(function (tokenResponse) {
+         return tokenResponse.accessToken;
+         })
+         .catch(function (error) {
+           console.log(error);
+         });
+         }
+         else {
+         return Promise.resolve(null);
+   }
+}
+</script>
+
 	
   <script>
-    var clientApplication;
-    (function (){
-    var msalConfig = {
-        auth: {
-            clientId: '8c45c1a8-f271-488b-85aa-1b4f06d0a2b6',
-            authority: 'https://login.microsoftonline.com/b8ad8656-3bdc-47ec-b9b4-84a142b7e134'     
-        }}}),
-    (async function () {
-        let requestObj = {
-	scopes: ["user.read", 'openid', 'profile']
-      };
-        if (clientApplication == null) {
-           await clientApplication.loginPopup(requestObj).then(onSignin).catch(function (error) {console.log(error) });
-        }
+    (async function main() {
+
+        // Add your AGENT ID below 
+        var BOT_ID = "https://defaultb8ad86563bdc47ecb9b484a142b7e1.34.environment.api.powerplatform.com/powervirtualagents/botsbyschema/cr4d9_podia/directline/token?api-version=2022-03-01-preview";
+        var theURL = "https://powerva.microsoft.com/api/botmanagement/v1/directline/directlinetoken?botId=" + BOT_ID;
+
+        const {
+            token
+        } = await fetchJSON(theURL);
+
+        var directline = await fetchJSON(regionalChannelSettingsURL).then(res=> res.channelUrlsById.directline); 
+
+        const directLine = window.WebChat.createDirectLine({
+            domain: `${directline}v3/directline`,
+            token
+        });
+
+        var userID = clientApplication.account?.accountIdentifier != null ?
+            ("Your-customized-prefix-max-20-characters" + clientApplication.account.accountIdentifier).substr(0, 64) :
+            (Math.random().toString() + Date.now().toString()).substr(0, 64); // Make sure this will not exceed 64 characters 
+        const store = WebChat.createStore({}, ({
+            dispatch
+        }) => next => action => {
+            const {
+                type
+            } = action;
+            if (action.type === 'DIRECT_LINE/CONNECT_FULFILLED') {
+                dispatch({
+                    type: 'WEB_CHAT/SEND_EVENT',
+                    payload: {
+                        name: 'startConversation',
+                        type: 'event',
+                        value: {
+                            text: "hello"
+                        }
+                    }
+                });
+                return next(action);
+            }
+            if (action.type === 'DIRECT_LINE/INCOMING_ACTIVITY') {
+                const activity = action.payload.activity;
+                let resourceUri;
+                if (activity.from && activity.from.role === 'bot' &&
+                    (resourceUri = getOAuthCardResourceUri(activity))) {
+                    exchangeTokenAsync(resourceUri).then(function(token) {
+                        if (token) {
+                            directLine.postActivity({
+                                type: 'invoke',
+                                name: 'signin/tokenExchange',
+                                value: {
+                                    id: activity.attachments[0].content.tokenExchangeResource.id,
+                                    connectionName: activity.attachments[0].content.connectionName,
+                                    token,
+                                },
+                                "from": {
+                                    id: userID,
+                                    name: clientApplication.account.name,
+                                    role: "user"
+                                }
+                            }).subscribe(
+                                id => {
+                                    if (id === 'retry') {
+                                        // The agent was not able to handle the invoke, so display the oauthCard
+                                        return next(action);
+                                    }
+                                    // else: tokenexchange successful and we do not display the oauthCard
+                                },
+                                error => {
+                                    // an error occurred to display the oauthCard
+                                    return next(action);
+                                }
+                            );
+                            return;
+                        } else
+                            return next(action);
+                    });
+                } else
+                    return next(action);
+            } else
+                return next(action);
+        });
+
         // Add your BOT ID below 
       // Specifies style options to customize the Web Chat canvas.
       // Please visit https://microsoft.github.io/BotFramework-WebChat for customization samples.
@@ -425,73 +543,6 @@ font-weight: 500 !important;
 
       };
 
-      // Specifies the token endpoint URL.
-      // To get this value, visit Copilot Studio > Settings > Channels > Mobile app page.
-      const tokenEndpointURL = new URL('https://defaultb8ad86563bdc47ecb9b484a142b7e1.34.environment.api.powerplatform.com/powervirtualagents/botsbyschema/cr4d9_podia/directline/token?api-version=2022-03-01-preview');
-
-      // Specifies the language the agent and Web Chat should display in:
-      // - (Recommended) To match the page language, set it to document.documentElement.lang
-      // - To use current user language, set it to navigator.language with a fallback language
-      // - To use another language, set it to supported Unicode locale
-
-      // Setting page language is highly recommended.
-      // When page language is set, browsers will use native font for the respective language.
-
-      const locale = document.documentElement.lang || 'en'; // Uses language specified in <html> element and fallback to English (United States).
-      // const locale = navigator.language || 'ja-JP'; // Uses user preferred language and fallback to Japanese.
-      // const locale = 'zh-HAnt'; // Always use Chinese (Traditional).
-
-      const apiVersion = tokenEndpointURL.searchParams.get('api-version');
-
-
-      const [directLineURL, token] = await Promise.all([
-        fetch(new URL(`/powervirtualagents/regionalchannelsettings?api-version=${apiVersion}`, tokenEndpointURL))
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Failed to retrieve regional channel settings.');
-            }
-
-            return response.json();
-          })
-          .then(({ channelUrlsById: { directline } }) => directline),
-        fetch(tokenEndpointURL)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Failed to retrieve Direct Line token.');
-            }
-
-            return response.json();
-          })
-          .then(({ token }) => token)
-      ]);
-
-      // The "token" variable is the credentials for accessing the current conversation.
-      // To maintain conversation across page navigation, save and reuse the token.
-
-      // The token could have access to sensitive information about the user.
-      // It must be treated like user password.
-
-      const directLine = WebChat.createDirectLine({ domain: new URL('v3/directline', directLineURL), token });
-
-      // Sends "startConversation" event when the connection is established.
-
-      const subscription = directLine.connectionStatus$.subscribe({
-        next(value) {
-          if (value === 2) {
-            directLine
-              .postActivity({
-                localTimezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                locale,
-                name: 'startConversation',
-                type: 'event'
-              })
-              .subscribe();
-
-            // Only send the event once, unsubscribe after the event is sent.
-            subscription.unsubscribe();
-          }
-        }
-      });
       setTimeout(() => {
      const inputElements = document.getElementsByClassName('webchat__send-box-text-box__input'); 
   if (inputElements.length > 0) {
