@@ -359,7 +359,7 @@ font-weight: 500 !important;
      } ());
     function onSignin(idToken) {
       let user = clientApplication.getAccount();
-      document.getElementById("userName").innerHTML = "Currently logged in as " + user.name;
+      // document.getElementById("userName").innerHTML = "Currently logged in as " + user.name;
       let requestObj1 = {
 	scopes: ["user.read", 'openid', 'profile']
       };
