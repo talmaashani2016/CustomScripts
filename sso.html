@@ -202,7 +202,7 @@ async function fetchJSON(url, options = {}) {
 					: (Math.random().toString() + Date.now().toString()).substr(0,64);
 					
    const { token } = await fetchJSON(theURL);
-   const directLine = window.WebChat.createDirectLine({ token });
+   const directLine = window.WebChat.createDirectLine({ domain: 'https://directline.botframework.azure.us/v3/directline', token });
    const store = WebChat.createStore({}, ({ dispatch }) => next => action => {
       const { type } = action;
       if (action.type === 'DIRECT_LINE/CONNECT_FULFILLED') {
