@@ -406,9 +406,9 @@ function exchangeTokenAsync(resourceUri) {
 
         const {
             token
-        } = await fetchJSON(theURL);
+        } = await fetch(theURL);
 
-        var directline = await fetchJSON(regionalChannelSettingsURL).then(res=> res.channelUrlsById.directline); 
+        var directline = await fetch(regionalChannelSettingsURL).then(res=> res.channelUrlsById.directline); 
 
         const directLine = window.WebChat.createDirectLine({
             domain: `${directline}v3/directline`,
