@@ -1,7 +1,7 @@
 <AnyConnectProfile xmlns="http://schemas.xmlsoap.org/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/encoding/ AnyConnectProfile.xsd">
 <ClientInitialization>
 <UseStartBeforeLogon UserControllable="false">true</UseStartBeforeLogon>
-<AutomaticCertSelection UserControllable="false">true</AutomaticCertSelection>
+<AutomaticCertSelection UserControllable="false">false</AutomaticCertSelection>
 <ShowPreConnectMessage>false</ShowPreConnectMessage>
 <ProxySettings>Native</ProxySettings>
 <AllowLocalProxyConnections>true</AllowLocalProxyConnections>
@@ -10,7 +10,7 @@
 <MinimizeOnConnect UserControllable="true">true</MinimizeOnConnect>
 <LocalLanAccess UserControllable="true">true</LocalLanAccess>
 <DisableCaptivePortalDetection UserControllable="true">false</DisableCaptivePortalDetection>
-<ClearSmartcardPin UserControllable="false">true</ClearSmartcardPin>
+<ClearSmartcardPin UserControllable="false">false</ClearSmartcardPin>
 <IPProtocolSupport>IPv4,IPv6</IPProtocolSupport>
 <AutoReconnect UserControllable="false">false</AutoReconnect>
 <SuspendOnConnectedStandby>false</SuspendOnConnectedStandby>
