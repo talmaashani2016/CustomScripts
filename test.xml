@@ -44,7 +44,7 @@ false
 </EnableAutomaticServerSelection>
 <RetainVpnOnLogoff>false </RetainVpnOnLogoff>
 <CaptivePortalRemediationBrowserFailover>false</CaptivePortalRemediationBrowserFailover>
-<AllowManualHostInput>false</AllowManualHostInput>
+<AllowManualHostInput>true</AllowManualHostInput>
 </ClientInitialization>
 <ServerList>
 <HostEntry>
