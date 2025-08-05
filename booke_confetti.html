@@ -1,0 +1,53 @@
+<html>
+<style>
+    body {
+        margin: 0;
+    }
+</style>
+
+<!--This is for the school pride - Confetti with OQ Logo -->
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <script>
+        window.addEventListener("load", () => {
+
+
+            function randomInRange(min, max) {
+
+                return Math.random() * (max - min) + min;
+            }
+            const defaults = {
+                spread: 360,
+                ticks: 50,
+                gravity: 0,
+                decay: 0.94,
+                startVelocity: 30,
+                shapes: ["star"],
+                colors: ["FFE400", "FFBD00", "E89400", "FFCA6C", "FDFFB8"]
+            }
+
+            confetti({
+                ...defaults,
+                scalar: 2.5,
+                angle: randomInRange(55, 125),
+                spread: randomInRange(50, 70),
+                particleCount: 50,
+                origin: { y: 0.6 },
+                shapes: ["emoji"],
+                shapeOptions: {
+                    emoji: {
+                        value: ["📙", "📘", "📚"],
+                    }
+                }
+            });
+
+        });
+
+
+    </script>
+
+</body>
+
+
+</html>
